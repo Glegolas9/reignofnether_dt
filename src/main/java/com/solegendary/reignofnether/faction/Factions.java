@@ -36,6 +36,7 @@ public class Factions {
 	public static Faction VILLAGERS;
 	public static Faction MONSTERS;
 	public static Faction PIGLINS;
+	public static Faction DARKNERS;
 	public static Faction NEUTRAL;
 	public static Faction RANDOM;
 	public static Faction NONE;
@@ -64,6 +65,11 @@ public class Factions {
 			.setSound(SoundRegistrar.PIGLIN_CALM_THEME_SONG.get())
 			.setCustomBuildingCondition((cb) -> cb.buildableByPiglins)
 			.setSpawnWave(PiglinWaveSpawner::spawnPiglinWave)
+		);
+
+		DARKNERS = register("darkners", new Faction()
+			.setWorkerIcon(ResourceLocation.fromNamespaceAndPath(ReignOfNether.MOD_ID, "textures/icons/deltarune_symbol.png"))
+			.setIcon(ResourceLocation.fromNamespaceAndPath(ReignOfNether.MOD_ID, "textures/icons/deltarune_symbol.png"))
 		);
 		
 		NEUTRAL = register("neutral", new Faction()
@@ -139,6 +145,22 @@ public class Factions {
 		registerEntity(PIGLINS, EntityRegistrar.PIGLIN_MERCHANT_UNIT.get(), ProductionItems.PIGLIN_MERCHANT);
 		registerEntity(PIGLINS, EntityRegistrar.WILDFIRE_UNIT.get(), ProductionItems.WILDFIRE);
 		registerEntity(PIGLINS, EntityRegistrar.ARMOURED_HOGLIN_UNIT.get());
+
+		// Darkners
+		registerWorkerEntity(DARKNERS, EntityRegistrar.GRUNT_UNIT.get(), ProductionItems.GRUNT);
+		registerEntity(DARKNERS, EntityRegistrar.STRIDER_UNIT.get(), ProductionItems.STRIDER);
+		registerScoutEntity(DARKNERS, EntityRegistrar.BABY_HOGLIN_UNIT.get(), ProductionItems.BABY_HOGLIN);
+		registerEntity(DARKNERS, EntityRegistrar.BRUTE_UNIT.get(), ProductionItems.BRUTE);
+		registerEntity(DARKNERS, EntityRegistrar.HEADHUNTER_UNIT.get(), ProductionItems.HEADHUNTER);
+		registerEntity(DARKNERS, EntityRegistrar.MARAUDER_UNIT.get(), ProductionItems.MARAUDER);
+		registerEntity(DARKNERS, EntityRegistrar.HOGLIN_UNIT.get(), ProductionItems.HOGLIN);
+		registerEntity(DARKNERS, EntityRegistrar.BLAZE_UNIT.get(), ProductionItems.BLAZE);
+		registerEntity(DARKNERS, EntityRegistrar.WITHER_SKELETON_UNIT.get(), ProductionItems.WITHER_SKELETON);
+		registerEntity(DARKNERS, EntityRegistrar.MAGMA_CUBE_UNIT.get(), ProductionItems.MAGMA_CUBE);
+		registerEntity(DARKNERS, EntityRegistrar.GHAST_UNIT.get(), ProductionItems.GHAST);
+		registerEntity(DARKNERS, EntityRegistrar.PIGLIN_MERCHANT_UNIT.get(), ProductionItems.PIGLIN_MERCHANT);
+		registerEntity(DARKNERS, EntityRegistrar.WILDFIRE_UNIT.get(), ProductionItems.WILDFIRE);
+		registerEntity(DARKNERS, EntityRegistrar.ARMOURED_HOGLIN_UNIT.get());
 		
 		// Neutral
 		registerEntity(NEUTRAL, EntityRegistrar.ENDERMAN_UNIT.get(), ProductionItems.ENDERMAN);
@@ -152,6 +174,7 @@ public class Factions {
 	
 	
 	public static void registerBuildings() {
+
 		// Monsters
 		registerStartBuilding(MONSTERS, Buildings.MAUSOLEUM, Keybindings.abilitySlot1);
 		registerBuildings(MONSTERS, Buildings.SPRUCE_STOCKPILE, Keybindings.abilitySlot2);
@@ -167,11 +190,10 @@ public class Factions {
 		registerBuildings(MONSTERS, Buildings.ALTAR_OF_DARKNESS, Keybindings.hotkey3);
 		registerBuildings(MONSTERS, Buildings.SPRUCE_BRIDGE, Keybindings.hotkey4);
 		registerBuildings(MONSTERS, Buildings.HAUNTED_HOUSE);
-		
 		registerBuildings(MONSTERS, Buildings.MONSTER_MARKET, Keybindings.hotkey10);
 		registerBuildings(MONSTERS, Buildings.BEACON);
 		
-		//Piglins
+		// Piglins
 		registerStartBuilding(PIGLINS, Buildings.CENTRAL_PORTAL, Keybindings.abilitySlot1);
 		registerBuildings(PIGLINS, Buildings.PORTAL_BASIC, Keybindings.abilitySlot2);
 		registerBuildings(PIGLINS, Buildings.NETHERWART_FARM, Keybindings.abilitySlot3);
@@ -190,7 +212,7 @@ public class Factions {
 		registerBuilding(PIGLINS, Buildings.PORTAL_MILITARY);
 		registerBuilding(PIGLINS, Buildings.PORTAL_TRANSPORT);
 		
-		//VillagersFaction
+		// Villagers
 		registerStartBuilding(VILLAGERS, Buildings.TOWN_CENTRE, Keybindings.abilitySlot1);
 		registerBuildings(VILLAGERS, Buildings.OAK_STOCKPILE, Keybindings.abilitySlot2);
 		registerBuildings(VILLAGERS, Buildings.VILLAGER_HOUSE, Keybindings.abilitySlot3);
@@ -207,6 +229,25 @@ public class Factions {
 		registerBuildings(VILLAGERS, Buildings.OAK_BRIDGE, Keybindings.hotkey4);
 		registerBuildings(VILLAGERS, Buildings.VILLAGER_MARKET, Keybindings.hotkey10);
 		registerBuildings(VILLAGERS, Buildings.BEACON);
+
+		// Darkners
+		registerStartBuilding(DARKNERS, Buildings.CENTRAL_PORTAL, Keybindings.abilitySlot1);
+		registerBuildings(DARKNERS, Buildings.PORTAL_BASIC, Keybindings.abilitySlot2);
+		registerBuildings(DARKNERS, Buildings.NETHERWART_FARM, Keybindings.abilitySlot3);
+		registerBuildings(DARKNERS, Buildings.BASTION, Keybindings.abilitySlot4);
+		registerBuildings(DARKNERS, Buildings.HOGLIN_STABLES, Keybindings.abilitySlot5);
+		registerBuildings(DARKNERS, Buildings.FLAME_SANCTUARY, Keybindings.abilitySlot6);
+		registerBuildings(DARKNERS, Buildings.WITHER_SHRINE, Keybindings.abilitySlot7);
+		registerBuildings(DARKNERS, Buildings.BASALT_SPRINGS, Keybindings.abilitySlot8);
+		registerBuildings(DARKNERS, Buildings.FORTRESS, Keybindings.abilitySlot9);
+		registerBuildings(DARKNERS, Buildings.INFERNAL_PORTAL, Keybindings.hotkey3);
+		registerBuildings(DARKNERS, Buildings.BLACKSTONE_BRIDGE, Keybindings.hotkey4);
+		registerBuildings(DARKNERS, Buildings.PIGLIN_MARKET, Keybindings.hotkey10);
+		registerBuildings(DARKNERS, Buildings.BEACON);
+		registerBuilding(DARKNERS, Buildings.PORTAL_CIVILIAN);
+		registerBuilding(DARKNERS, Buildings.PORTAL_POCKET);
+		registerBuilding(DARKNERS, Buildings.PORTAL_MILITARY);
+		registerBuilding(DARKNERS, Buildings.PORTAL_TRANSPORT);
 		
 		//Neutral
 		registerBuildings(NEUTRAL, Buildings.CAPTURABLE_BEACON, Keybindings.abilitySlot1);
@@ -228,6 +269,7 @@ public class Factions {
 			CLASSIC_FACTIONS.add(key);
 		if (faction.playable)
 			PLAYABLE_FACTIONS.add(key);
+			// THIS IS THE ISSUE
 		if (faction.spawnWave != null)
 			SURVIVAL_FACTIONS.add(key);
 		faction = register(key, faction).setKey(key);
