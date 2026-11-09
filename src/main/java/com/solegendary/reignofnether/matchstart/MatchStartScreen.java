@@ -454,7 +454,7 @@ public class MatchStartScreen extends Screen {
         String drawnName = this.font.plainSubstrByWidth(name, nameMaxW);
         g.drawString(this.font, drawnName, nameX, tileY + (FRAME_SIZE - this.font.lineHeight) / 2 + 1, nameCol, false);
 
-        Faction[] order = { Factions.VILLAGERS, Factions.MONSTERS, Factions.PIGLINS, Factions.RANDOM };
+        Faction[] order = {Factions.VILLAGERS, Factions.MONSTERS, Factions.PIGLINS, Factions.DARKNERS, Factions.RANDOM};
         int currentX = factionStartX - 6;
         for (Faction f : order) {
             renderFactionTile(g, sp, f, currentX, tileY, localName, mx, my);

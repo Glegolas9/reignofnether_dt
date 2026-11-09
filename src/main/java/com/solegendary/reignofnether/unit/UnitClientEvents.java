@@ -360,23 +360,15 @@ public class UnitClientEvents {
     public static void sendUnitCommand(UnitAction action, Predicate<LivingEntity> includeUnit) {
         BlockPos bp = getPreselectedBlockPos();
 
-        if (action.name().toLowerCase().contains("startrts")) {
+        if (action.name().toLowerCase().contains("startrts") || action.name().toLowerCase().contains("sandbox_spawn")) {
             if (action == UnitAction.STARTRTS_VILLAGERS) {
                 PlayerServerboundPacket.startRTS(Factions.VILLAGERS, (double) bp.getX(), (double) bp.getY(), (double) bp.getZ());
             } else if (action == UnitAction.STARTRTS_MONSTERS) {
                 PlayerServerboundPacket.startRTS(Factions.MONSTERS, (double) bp.getX(), (double) bp.getY(), (double) bp.getZ());
             } else if (action == UnitAction.STARTRTS_PIGLINS) {
                 PlayerServerboundPacket.startRTS(Factions.PIGLINS, (double) bp.getX(), (double) bp.getY(), (double) bp.getZ());
-            }
-            return;
-        }
-        else if (action.name().toLowerCase().contains("sandbox_spawn")) {
-            if (action == UnitAction.STARTRTS_VILLAGERS) {
-                PlayerServerboundPacket.startRTS(Factions.VILLAGERS, (double) bp.getX(), (double) bp.getY(), (double) bp.getZ());
-            } else if (action == UnitAction.STARTRTS_MONSTERS) {
-                PlayerServerboundPacket.startRTS(Factions.MONSTERS, (double) bp.getX(), (double) bp.getY(), (double) bp.getZ());
-            } else if (action == UnitAction.STARTRTS_PIGLINS) {
-                PlayerServerboundPacket.startRTS(Factions.PIGLINS, (double) bp.getX(), (double) bp.getY(), (double) bp.getZ());
+            } else if (action == UnitAction.STARTRTS_DARKNERS) {
+                PlayerServerboundPacket.startRTS(Factions.DARKNERS, (double) bp.getX(), (double) bp.getY(), (double) bp.getZ());
             }
             return;
         }

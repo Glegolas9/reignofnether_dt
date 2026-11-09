@@ -35,6 +35,7 @@ public class StartButtons {
                     fcs(LanguageUtil.getTranslation("hud.gamemode.reignofnether.sandbox_confirm"))
             )
     );
+    
     public static Button villagerStartButton = new Button(
         "VillagersFaction",
             ICON_SIZE,
@@ -78,6 +79,22 @@ public class StartButtons {
             () -> TutorialClientEvents.isEnabled() || !PlayerClientEvents.canStartRTS,
             () -> !TutorialClientEvents.isEnabled(),
             () -> CursorClientEvents.setLeftClickAction(UnitAction.STARTRTS_PIGLINS),
+            null,
+            List.of(
+                    fcs(LanguageUtil.getTranslation("hud.startbuttons.piglins.reignofnether.first"), true),
+                    fcs(LanguageUtil.getTranslation("hud.startbuttons.piglins.reignofnether.second", STARTING_WORKERS))
+            )
+    );
+
+    public static Button darknerStartButton = new Button(
+            "Darkners",
+            ICON_SIZE,
+            ResourceLocation.fromNamespaceAndPath(ReignOfNether.MOD_ID, "textures/icons/misc/deltarune_symbol.png"),
+            (Keybinding) null,
+            () -> CursorClientEvents.getLeftClickAction() == UnitAction.STARTRTS_DARKNERS,
+            () -> TutorialClientEvents.isEnabled() || !PlayerClientEvents.canStartRTS,
+            () -> !TutorialClientEvents.isEnabled(),
+            () -> CursorClientEvents.setLeftClickAction(UnitAction.STARTRTS_DARKNERS),
             null,
             List.of(
                     fcs(LanguageUtil.getTranslation("hud.startbuttons.piglins.reignofnether.first"), true),

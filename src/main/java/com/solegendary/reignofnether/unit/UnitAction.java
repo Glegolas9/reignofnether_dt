@@ -152,6 +152,7 @@ public enum UnitAction {
     STARTRTS_VILLAGERS,
     STARTRTS_MONSTERS,
     STARTRTS_PIGLINS,
+    STARTRTS_DARKNERS,
 
     SET_ATTACK_COUNT, // for marauders
 

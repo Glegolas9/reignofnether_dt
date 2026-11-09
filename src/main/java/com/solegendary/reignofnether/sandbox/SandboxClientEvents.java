@@ -113,7 +113,7 @@ public class SandboxClientEvents {
                 "Toggle Faction",
                 Button.itemIconSize,
                 faction.icon,
-	        null,
+	            null,
                 () -> false,
                 () -> false,
                 () -> true,

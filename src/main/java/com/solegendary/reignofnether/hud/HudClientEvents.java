@@ -1711,6 +1711,15 @@ public class HudClientEvents {
                             );
                             renderedButtons.add(StartButtons.piglinStartButton);
                         }
+                        if (!StartButtons.darknerStartButton.isHidden.get()) {
+                            StartButtons.darknerStartButton.render(evt.getGuiGraphics(),
+                                    screenWidth - (StartButtons.ICON_SIZE * 10),
+                                    StartButtons.ICON_SIZE / 2,
+                                    mouseX,
+                                    mouseY
+                            );
+                            renderedButtons.add(StartButtons.darknerStartButton);
+                        }
                     }
                 } else if (!StartButtons.sandboxStartButton.isHidden.get()) {
                     StartButtons.sandboxStartButton.render(evt.getGuiGraphics(),

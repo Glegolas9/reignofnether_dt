@@ -119,7 +119,8 @@ public class CursorClientEvents {
         if (actionName != null &&
                 List.of(UnitAction.STARTRTS_VILLAGERS,
                         UnitAction.STARTRTS_MONSTERS,
-                        UnitAction.STARTRTS_PIGLINS).contains(actionName))
+                        UnitAction.STARTRTS_PIGLINS,
+                        UnitAction.STARTRTS_DARKNERS).contains(actionName))
             leftClickAction = actionName;
         else if (UnitClientEvents.getSelectedUnits().size() > 0 ||
                 BuildingClientEvents.getSelectedBuildings().size() > 0)
@@ -502,7 +503,8 @@ public class CursorClientEvents {
             boolean isLeftClickActionStartRTS = leftClickAction != null &&
                     List.of(UnitAction.STARTRTS_VILLAGERS,
                             UnitAction.STARTRTS_MONSTERS,
-                            UnitAction.STARTRTS_PIGLINS).contains(leftClickAction);
+                            UnitAction.STARTRTS_PIGLINS,
+                            UnitAction.STARTRTS_DARKNERS).contains(leftClickAction);
 
             if ((!OrthoviewClientEvents.isCameraMovingByMouse() &&
                     !leftClickDown && ownAnySelected &&
