@@ -8,6 +8,7 @@ import com.solegendary.reignofnether.unit.units.monsters.*;
 import com.solegendary.reignofnether.unit.units.neutral.*;
 import com.solegendary.reignofnether.unit.units.piglins.*;
 import com.solegendary.reignofnether.unit.units.villagers.*;
+import com.solegendary.reignofnether.unit.units.darkners.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
@@ -461,6 +462,15 @@ public class EntityRegistrar {
                     .updateInterval(10)
                     .build(ResourceLocation.fromNamespaceAndPath(ReignOfNether.MOD_ID, "totem_of_shielding").toString()));
 
+    // Project Prophecy //
+    public static final RegistryObject<EntityType<VesselUnit>> VESSEL_UNIT = ENTITIES.register("vessel_unit",
+            () -> EntityType.Builder.of(VesselUnit::new, MobCategory.CREATURE)
+                    .sized(EntityType.ZOMBIE.getWidth(), EntityType.ZOMBIE.getHeight())
+                    .clientTrackingRange(UNIT_CLIENT_TRACKING_RANGE)
+                    .build(ResourceLocation.fromNamespaceAndPath(ReignOfNether.MOD_ID, "vessel_unit").toString()));
+
+    //////////////////////
+
     public static void init(FMLJavaModLoadingContext context) {
         ENTITIES.register(context.getModEventBus());
     }
@@ -468,6 +478,7 @@ public class EntityRegistrar {
     @Nullable
     public static EntityType<? extends Mob> getEntityType(String unitName) {
         return switch(unitName) {
+            case VesselProd.itemName -> EntityRegistrar.VESSEL_UNIT.get();
             case CreeperProd.itemName -> EntityRegistrar.CREEPER_UNIT.get();
             case SkeletonProd.itemName -> EntityRegistrar.SKELETON_UNIT.get();
             case ZombieProd.itemName -> EntityRegistrar.ZOMBIE_UNIT.get();

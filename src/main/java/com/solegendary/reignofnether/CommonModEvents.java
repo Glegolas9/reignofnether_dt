@@ -9,6 +9,7 @@ import com.solegendary.reignofnether.unit.units.monsters.*;
 import com.solegendary.reignofnether.unit.units.neutral.*;
 import com.solegendary.reignofnether.unit.units.piglins.*;
 import com.solegendary.reignofnether.unit.units.villagers.*;
+import com.solegendary.reignofnether.unit.units.darkners.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
@@ -30,6 +31,7 @@ public class CommonModEvents {
 
     @SubscribeEvent
     public static void registerAttributes(EntityAttributeCreationEvent evt) {
+        evt.put(EntityRegistrar.VESSEL_UNIT.get(), VesselUnit.createAttributes().build());
         evt.put(EntityRegistrar.POLAR_BEAR_UNIT.get(), PolarBearUnit.createAttributes().build());
         evt.put(EntityRegistrar.GRIZZLY_BEAR_UNIT.get(), GrizzlyBearUnit.createAttributes().build());
         evt.put(EntityRegistrar.PANDA_UNIT.get(), PandaUnit.createAttributes().build());

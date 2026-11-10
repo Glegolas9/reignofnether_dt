@@ -1,5 +1,4 @@
 package com.solegendary.reignofnether.unit.units.monsters;
-
 import com.solegendary.reignofnether.hud.TooltipColours;
 import com.solegendary.reignofnether.registrars.AttributeRegistrar;
 import com.solegendary.reignofnether.unit.interfaces.AttackerUnit;

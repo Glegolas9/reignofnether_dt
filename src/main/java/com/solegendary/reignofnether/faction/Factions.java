@@ -61,15 +61,18 @@ public class Factions {
 		PIGLINS = register("piglins", new Faction()
 			.setWorkerIcon(ResourceLocation.fromNamespaceAndPath(ReignOfNether.MOD_ID, "textures/mobheads/grunt.png"))
 			.setIcon(ResourceLocation.fromNamespaceAndPath(ReignOfNether.MOD_ID, "textures/mobheads/grunt.png"))
-			.setSpawnWave(IllagerWaveSpawner::spawnIllagerWave)
 			.setSound(SoundRegistrar.PIGLIN_CALM_THEME_SONG.get())
-			.setCustomBuildingCondition((cb) -> cb.buildableByPiglins)
 			.setSpawnWave(PiglinWaveSpawner::spawnPiglinWave)
+			.setCustomBuildingCondition((cb) -> cb.buildableByPiglins)
 		);
 
 		DARKNERS = register("darkners", new Faction()
 			.setWorkerIcon(ResourceLocation.fromNamespaceAndPath(ReignOfNether.MOD_ID, "textures/icons/deltarune_symbol.png"))
 			.setIcon(ResourceLocation.fromNamespaceAndPath(ReignOfNether.MOD_ID, "textures/icons/deltarune_symbol.png"))
+			.setSound(SoundRegistrar.PIGLIN_CALM_THEME_SONG.get())
+			.setSpawnWave(PiglinWaveSpawner::spawnPiglinWave)
+			.setCustomBuildingCondition((cb) -> cb.buildableByPiglins)
+			.noCubeMap() // The panorama thing in the titlescreen
 		);
 		
 		NEUTRAL = register("neutral", new Faction()
@@ -147,7 +150,8 @@ public class Factions {
 		registerEntity(PIGLINS, EntityRegistrar.ARMOURED_HOGLIN_UNIT.get());
 
 		// Darkners
-		registerWorkerEntity(DARKNERS, EntityRegistrar.GRUNT_UNIT.get(), ProductionItems.GRUNT);
+		registerWorkerEntity(DARKNERS, EntityRegistrar.ZOMBIE_VILLAGER_UNIT.get(), ProductionItems.GRUNT);
+		registerEntity(DARKNERS, EntityRegistrar.VESSEL_UNIT.get(), ProductionItems.GRUNT);
 		registerEntity(DARKNERS, EntityRegistrar.STRIDER_UNIT.get(), ProductionItems.STRIDER);
 		registerScoutEntity(DARKNERS, EntityRegistrar.BABY_HOGLIN_UNIT.get(), ProductionItems.BABY_HOGLIN);
 		registerEntity(DARKNERS, EntityRegistrar.BRUTE_UNIT.get(), ProductionItems.BRUTE);
@@ -269,7 +273,6 @@ public class Factions {
 			CLASSIC_FACTIONS.add(key);
 		if (faction.playable)
 			PLAYABLE_FACTIONS.add(key);
-			// THIS IS THE ISSUE
 		if (faction.spawnWave != null)
 			SURVIVAL_FACTIONS.add(key);
 		faction = register(key, faction).setKey(key);

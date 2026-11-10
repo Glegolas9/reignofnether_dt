@@ -97,8 +97,8 @@ public class StartButtons {
             () -> CursorClientEvents.setLeftClickAction(UnitAction.STARTRTS_DARKNERS),
             null,
             List.of(
-                    fcs(LanguageUtil.getTranslation("hud.startbuttons.piglins.reignofnether.first"), true),
-                    fcs(LanguageUtil.getTranslation("hud.startbuttons.piglins.reignofnether.second", STARTING_WORKERS))
+                    fcs(LanguageUtil.getTranslation("hud.startbuttons.darkners.reignofnether.first"), true),
+                    fcs(LanguageUtil.getTranslation("hud.startbuttons.darkners.reignofnether.second", STARTING_WORKERS))
             )
     );
 }

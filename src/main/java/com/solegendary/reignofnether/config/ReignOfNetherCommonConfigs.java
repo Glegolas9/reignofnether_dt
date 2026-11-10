@@ -79,6 +79,9 @@ public class ReignOfNetherCommonConfigs {
         UnitCosts.HERO_BASE_REVIVE_COST.define(BUILDER);
         UnitCosts.HERO_EXTRA_REVIVE_COST_PER_LEVEL.define(BUILDER);
 
+        //Project Prophecy
+        UnitCosts.VESSEL.define(BUILDER);
+
         //*Buildings*
         BUILDER.comment("Building Cost Configurations");
         BuildingCosts.BEACON.define(BUILDER);
@@ -263,6 +266,9 @@ public class ReignOfNetherCommonConfigs {
 
         public static final ResourceCostConfigEntry HERO_BASE_REVIVE_COST = ResourceCostConfigEntry.Unit(100,0,0,30, 5, ResourceCosts.HERO_BASE_REVIVE_COST, "Hero Base Revive Cost Config");
         public static final ResourceCostConfigEntry HERO_EXTRA_REVIVE_COST_PER_LEVEL = ResourceCostConfigEntry.Unit(50,0,0,5, 0, ResourceCosts.HERO_EXTRA_REVIVE_COST_PER_LEVEL, "Hero Extra Revive Cost Per Level Config");
+
+        // Project Prophecy
+        public static final ResourceCostConfigEntry VESSEL = ResourceCostConfigEntry.Unit(0, 0, 0, 30, 2, ResourceCosts.VESSEL, "Vessel Config");
     }
     public static class BuildingCosts implements Costs {
         public static final ResourceCostConfigEntry BEACON = ResourceCostConfigEntry.Building(0,500,500, 0, ResourceCosts.BEACON, "Beacon Config");

@@ -1146,6 +1146,8 @@
     "hud.startbuttons.monsters.reignofnether.second": "Spawns %d zombie villagers at the target location.",
     "hud.startbuttons.piglins.reignofnether.first": "Join the game as Piglins",
     "hud.startbuttons.piglins.reignofnether.second": "Spawns %d piglin grunts at the target location.",
+    "hud.startbuttons.darkners.reignofnether.first": "Join the game as Darkners",
+    "hud.startbuttons.darkners.reignofnether.second": "Spawns §4YOU at the target location.",
 
     "hud.startbuttons.villagers.reignofnether.first_startpos": "Play as Villagers",
     "hud.startbuttons.villagers.reignofnether.second_startpos": "Start with a Town Centre and %d villagers.",
@@ -1153,6 +1155,8 @@
     "hud.startbuttons.monsters.reignofnether.second_startpos": "Start with a Mausoleum and %d zombie villagers.",
     "hud.startbuttons.piglins.reignofnether.first_startpos": "Play as Piglins",
     "hud.startbuttons.piglins.reignofnether.second_startpos": "Start with a Central Portal and %d piglin grunts.",
+    "hud.startbuttons.darkners.reignofnether.first_startpos": "Play as Darkners",
+    "hud.startbuttons.darkners.reignofnether.second_startpos": "Start with a Castle Fountain and §4your vessel.",
 
     "hud.orthoview.reignofnether.hiding_leaves_around": "Hiding leaves: around units and cursor",
     "hud.orthoview.reignofnether.hiding_leaves_all": "Hiding leaves: all",
@@ -1228,6 +1232,7 @@
     "hud.faction.reignofnether.villagers": "Villager",
     "hud.faction.reignofnether.monsters": "Monster",
     "hud.faction.reignofnether.piglins": "Piglin",
+    "hud.faction.reignofnether.darkners": "Darkner",
     "hud.faction.reignofnether.random": "Random",
     "hud.faction.reignofnether.neutral": "Neutral",
     "hud.faction.reignofnether.none": "None",
@@ -1650,6 +1655,9 @@
     "entity.reignofnether.poison_spider_jockey": "Poison Spider Jockey",
     "entity.reignofnether.hoglin_rider": "Hoglin Rider",
     "entity.reignofnether.reignofnether.baby": "Baby",
+
+    "entity.reignofnether.vessel_unit": "Vessel",
+    "entity.reignofnether.vessel_unit.tooltip": "YOU. Gifted with the ability to create the darkest of dark.",
 
     "units.reignofnether.farmer": "Farmer",
     "units.reignofnether.farmer.tooltip": "Plants carrots worth +1 food",
@@ -2397,6 +2405,7 @@
     "matchstart.reignofnether.faction.villagers": "VILLAGERS",
     "matchstart.reignofnether.faction.monsters": "MONSTERS",
     "matchstart.reignofnether.faction.piglins": "PIGLINS",
+    "matchstart.reignofnether.faction.darkners": "DARKNERS",
     "matchstart.reignofnether.starting": "STARTING IN %d…",
     "matchstart.reignofnether.ready_count": "%d / %d ready",
     "matchstart.reignofnether.map_loading": "Map loading…",

@@ -70,6 +70,8 @@ public class ResourceCosts {
     public static final ResourceCost KILLER_RABBIT = new ResourceCost(ID, "KILLER_RABBIT");
     public static final ResourceCost SILVERFISH = new ResourceCost(ID, "SILVERFISH");
 
+    public static final ResourceCost VESSEL = new ResourceCost(ID, "VESSEL");
+
     //BUILDINGS
     public static final ResourceCost BEACON = new ResourceCost(ID, "BEACON");
 
@@ -282,6 +284,9 @@ public class ResourceCosts {
 
         HERO_BASE_REVIVE_COST.bakeValues(ReignOfNetherCommonConfigs.UnitCosts.HERO_BASE_REVIVE_COST);
         HERO_EXTRA_REVIVE_COST_PER_LEVEL.bakeValues(ReignOfNetherCommonConfigs.UnitCosts.HERO_EXTRA_REVIVE_COST_PER_LEVEL);
+
+        // Project Prophecy
+        VESSEL.bakeValues(ReignOfNetherCommonConfigs.UnitCosts.VESSEL);
 
         // ******************* BUILDINGS ******************* //
         BEACON.bakeValues(ReignOfNetherCommonConfigs.BuildingCosts.BEACON);
