@@ -267,8 +267,8 @@ public class ReignOfNetherCommonConfigs {
         public static final ResourceCostConfigEntry HERO_BASE_REVIVE_COST = ResourceCostConfigEntry.Unit(100,0,0,30, 5, ResourceCosts.HERO_BASE_REVIVE_COST, "Hero Base Revive Cost Config");
         public static final ResourceCostConfigEntry HERO_EXTRA_REVIVE_COST_PER_LEVEL = ResourceCostConfigEntry.Unit(50,0,0,5, 0, ResourceCosts.HERO_EXTRA_REVIVE_COST_PER_LEVEL, "Hero Extra Revive Cost Per Level Config");
 
-        // Project Prophecy
-        public static final ResourceCostConfigEntry VESSEL = ResourceCostConfigEntry.Unit(0, 0, 0, 30, 2, ResourceCosts.VESSEL, "Vessel Config");
+        // DARKNERS
+        public static final ResourceCostConfigEntry VESSEL = ResourceCostConfigEntry.Unit(0, 0, 0, 10, 0, ResourceCosts.VESSEL, "Vessel Config");
     }
     public static class BuildingCosts implements Costs {
         public static final ResourceCostConfigEntry BEACON = ResourceCostConfigEntry.Building(0,500,500, 0, ResourceCosts.BEACON, "Beacon Config");
@@ -322,6 +322,9 @@ public class ReignOfNetherCommonConfigs {
         public static final ResourceCostConfigEntry FORTRESS = ResourceCostConfigEntry.Building(0, 400, 300, 0, ResourceCosts.FORTRESS, "Fortress Config");
         public static final ResourceCostConfigEntry INFERNAL_PORTAL = ResourceCostConfigEntry.Building(0,125,50, 0, ResourceCosts.INFERNAL_PORTAL, "Infernal Portal Config");
         public static final ResourceCostConfigEntry PIGLIN_MARKET = ResourceCostConfigEntry.Building(0,75,75, 0, ResourceCosts.PIGLIN_MARKET, "Piglin Market Config");
+
+        // Darkners
+        // public static final ResourceCostConfigEntry GRAND_FOUNTAIN = ResourceCostConfigEntry.Building();
     }
     public static class ResearchCosts implements Costs {
         public static final ResourceCostConfigEntry RESEARCH_GOLEM_SMITHING = ResourceCostConfigEntry.Research(0, 150,200, 90, ResourceCosts.RESEARCH_GOLEM_SMITHING, "Golem Smithing Research Config");

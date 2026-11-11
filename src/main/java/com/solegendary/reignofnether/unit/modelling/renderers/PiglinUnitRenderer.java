@@ -29,7 +29,7 @@ public class PiglinUnitRenderer extends HumanoidMobRenderer<Mob, PiglinUnitModel
 
     // See class EntityRenderers for the original code
     public PiglinUnitRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, createModel(pContext.getModelSet(), ModelLayers.PIGLIN, false), 0.5F, 1.0019531F, 1.0F, 1.0019531F);
+        super(pContext, createModel(pContext.getModelSet(), ModelLayers.PIGLIN, false), 0.5F);
         this.addLayer(new HumanoidArmorLayer<>(this,
                     new HumanoidArmorModel<>(pContext.bakeLayer(ModelLayers.ZOMBIE_INNER_ARMOR)),
                     new HumanoidArmorModel<>(pContext.bakeLayer(ModelLayers.ZOMBIE_OUTER_ARMOR)), pContext.getModelManager()));

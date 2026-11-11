@@ -1,37 +1,39 @@
 package com.solegendary.reignofnether.unit.modelling.renderers;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import com.solegendary.reignofnether.unit.modelling.models.VesselUnitModel;
-import com.solegendary.reignofnether.unit.units.darkners.VesselUnit;
+
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.solegendary.reignofnether.ReignOfNether;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.ModelLayers;
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.EntityModelSet;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.client.renderer.entity.HumanoidMobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 
-@OnlyIn(Dist.CLIENT)
-public class VesselUnitRenderer extends MobRenderer<VesselUnit, VesselUnitModel<VesselUnit>> {
+public class VesselUnitRenderer<T extends Mob> extends HumanoidMobRenderer<Mob, VesselUnitModel<Mob>> {
 
-    public static final float SCALE_MULT = 1f;
+	// MEMBERS //
+	// PUBLIC
 
-    private static final ResourceLocation TEXTURE_LOCATION = ResourceLocation.fromNamespaceAndPath("reignofnether", "textures/entities/vessel_unit.png");
+	public static final ResourceLocation VESSEL_UNIT = ResourceLocation.fromNamespaceAndPath("reignofnether", "textures/entities/vessel_unit.png");
 
-    public VesselUnitRenderer(EntityRendererProvider.Context context) {
-        super(context, new VesselUnitModel<>(context.bakeLayer(VesselUnitModel.LAYER_LOCATION)), 0.5F);
-    }
+	// METHODS //
+	// CONSTRUCTORS
 
-    @Override
-    public @NotNull ResourceLocation getTextureLocation(@NotNull VesselUnit vesselUnit) {
-        return TEXTURE_LOCATION;
-    }
+	public VesselUnitRenderer(EntityRendererProvider.Context pContext) {super(pContext, new VesselUnitModel<>(pContext.bakeLayer(VesselUnitModel.LAYER_LOCATION)), 0.5f);}
 
-    public VesselUnitRenderer(EntityRendererProvider.Context pContext, ModelLayerLocation mll) {
-        super(pContext, new VesselUnitModel<>(pContext.bakeLayer(mll)), 0.5F);
-    }
+	// PUBLIC
 
-    protected void scale(@NotNull VesselUnit pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
-        pMatrixStack.scale(SCALE_MULT, SCALE_MULT, SCALE_MULT);
-    }
+	public ResourceLocation getTextureLocation(Mob pEntity) {return VESSEL_UNIT;}
+
 }

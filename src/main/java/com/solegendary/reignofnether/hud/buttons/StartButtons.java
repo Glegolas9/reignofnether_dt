@@ -98,7 +98,7 @@ public class StartButtons {
             null,
             List.of(
                     fcs(LanguageUtil.getTranslation("hud.startbuttons.darkners.reignofnether.first"), true),
-                    fcs(LanguageUtil.getTranslation("hud.startbuttons.darkners.reignofnether.second", STARTING_WORKERS))
+                    fcs(LanguageUtil.getTranslation("hud.startbuttons.darkners.reignofnether.second", 1))
             )
     );
 }

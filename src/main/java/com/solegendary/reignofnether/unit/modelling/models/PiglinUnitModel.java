@@ -37,8 +37,8 @@ public class PiglinUnitModel<T extends Mob> extends PlayerModel<T> {
     private final PartPose leftArmDefault;
     private final PartPose rightArmDefault;
 
-    public PiglinUnitModel(ModelPart p_170810_) {
-        super(p_170810_, false);
+    public PiglinUnitModel(ModelPart root) {
+        super(root, false); // boolean -> isSlim
         this.rightEar = this.head.getChild("right_ear");
         this.leftEar = this.head.getChild("left_ear");
         this.bodyDefault = this.body.storePose();

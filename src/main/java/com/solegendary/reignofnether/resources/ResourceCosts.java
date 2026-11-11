@@ -285,7 +285,7 @@ public class ResourceCosts {
         HERO_BASE_REVIVE_COST.bakeValues(ReignOfNetherCommonConfigs.UnitCosts.HERO_BASE_REVIVE_COST);
         HERO_EXTRA_REVIVE_COST_PER_LEVEL.bakeValues(ReignOfNetherCommonConfigs.UnitCosts.HERO_EXTRA_REVIVE_COST_PER_LEVEL);
 
-        // Project Prophecy
+        // DARKNERS
         VESSEL.bakeValues(ReignOfNetherCommonConfigs.UnitCosts.VESSEL);
 
         // ******************* BUILDINGS ******************* //

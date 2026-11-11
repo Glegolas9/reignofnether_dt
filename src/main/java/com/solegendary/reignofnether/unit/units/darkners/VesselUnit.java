@@ -26,6 +26,8 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -35,7 +37,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.item.ItemStack;
@@ -51,10 +53,26 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VesselUnit extends PathfinderMob implements Unit, AttackerUnit {
+public class VesselUnit extends Mob implements Unit, WorkerUnit, AttackerUnit {
     public static final Abilities ABILITIES = new Abilities();
 
-    //region
+    //region (worker)
+
+    public BuildRepairGoal buildRepairGoal;
+    public GatherResourcesGoal gatherResourcesGoal;
+    private ExploreBuildLocationGoal exploreBuildLocationGoal;
+
+    public BuildRepairGoal getBuildRepairGoal() {return buildRepairGoal;}
+    public GatherResourcesGoal getGatherResourceGoal() {return gatherResourcesGoal;}
+    public ExploreBuildLocationGoal getExploreBuildLocationGoal() {return exploreBuildLocationGoal;}
+
+    public BlockState getReplantBlockState() {
+        return Blocks.PUMPKIN_STEM.defaultBlockState();
+    }
+
+    //end region
+
+    //region (attacker)
     @Override
     public void updateAbilityButtons() {
         abilities = ABILITIES.clone();
@@ -81,7 +99,7 @@ public class VesselUnit extends PathfinderMob implements Unit, AttackerUnit {
 
     GarrisonGoal garrisonGoal;
     public GarrisonGoal getGarrisonGoal() { return garrisonGoal; }
-    public boolean canGarrison() { return getGarrisonGoal() != null; }
+    public boolean canGarrison() { return false; }
 
     UnitItemGoal itemGoal;
     @Override public UnitItemGoal getItemGoal() { return itemGoal; }
@@ -186,7 +204,7 @@ public class VesselUnit extends PathfinderMob implements Unit, AttackerUnit {
     private Abilities abilities = ABILITIES.clone();
     private final List<ItemStack> items = new ArrayList<>();
 
-    public VesselUnit(EntityType<? extends PathfinderMob> entityType, Level level) {
+    public VesselUnit(EntityType<? extends Mob> entityType, Level level) {
         super(entityType, level);
 
         // updateAbilityButtons();
@@ -239,6 +257,7 @@ public class VesselUnit extends PathfinderMob implements Unit, AttackerUnit {
         super.tick();
         Unit.tick(this);
         AttackerUnit.tick(this);
+        WorkerUnit.tick(this);
     }
 
     @Override
@@ -268,6 +287,9 @@ public class VesselUnit extends PathfinderMob implements Unit, AttackerUnit {
         this.attackGoal = new MeleeAttackUnitGoal(this, false);
         this.attackBuildingGoal = new MeleeAttackBuildingGoal(this);
         this.returnResourcesGoal = new ReturnResourcesGoal(this);
+        this.buildRepairGoal = new BuildRepairGoal(this);
+        this.gatherResourcesGoal = new GatherResourcesGoal(this);
+        this.exploreBuildLocationGoal = new ExploreBuildLocationGoal(this);
     }
 
     @Override
@@ -279,6 +301,9 @@ public class VesselUnit extends PathfinderMob implements Unit, AttackerUnit {
         this.goalSelector.addGoal(2, attackGoal);
         this.goalSelector.addGoal(2, attackBuildingGoal);
         this.goalSelector.addGoal(2, returnResourcesGoal);
+        this.goalSelector.addGoal(2, exploreBuildLocationGoal);
+        this.goalSelector.addGoal(2, buildRepairGoal);
+        this.goalSelector.addGoal(2, gatherResourcesGoal);
         this.goalSelector.addGoal(2, garrisonGoal);
         this.targetSelector.addGoal(2, targetGoal);
         this.targetSelector.addGoal(3, moveGoal);

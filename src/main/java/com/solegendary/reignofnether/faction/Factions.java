@@ -150,8 +150,7 @@ public class Factions {
 		registerEntity(PIGLINS, EntityRegistrar.ARMOURED_HOGLIN_UNIT.get());
 
 		// Darkners
-		registerWorkerEntity(DARKNERS, EntityRegistrar.ZOMBIE_VILLAGER_UNIT.get(), ProductionItems.GRUNT);
-		registerEntity(DARKNERS, EntityRegistrar.VESSEL_UNIT.get(), ProductionItems.GRUNT);
+		registerWorkerEntity(DARKNERS, EntityRegistrar.VESSEL_UNIT.get(), ProductionItems.GRUNT);
 		registerEntity(DARKNERS, EntityRegistrar.STRIDER_UNIT.get(), ProductionItems.STRIDER);
 		registerScoutEntity(DARKNERS, EntityRegistrar.BABY_HOGLIN_UNIT.get(), ProductionItems.BABY_HOGLIN);
 		registerEntity(DARKNERS, EntityRegistrar.BRUTE_UNIT.get(), ProductionItems.BRUTE);

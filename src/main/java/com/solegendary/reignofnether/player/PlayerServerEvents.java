@@ -496,13 +496,18 @@ public class PlayerServerEvents {
             ArrayList<Entity> startingWorkers = new ArrayList<>();
             Entity startingScout = null;
 
-            List<BlockPos> nonReadiedWorkerBps = List.of(
+            List<BlockPos> nonReadiedWorkerBps;
+            if (faction.equals(Factions.DARKNERS)) {
+                nonReadiedWorkerBps = List.of(
+                    new BlockPos((int) pos.x,0,(int) pos.z));
+            } else {
+                nonReadiedWorkerBps = List.of(
                     new BlockPos((int) pos.x,0,(int) pos.z),
                     new BlockPos((int) pos.x+1,0,(int) pos.z),
                     new BlockPos((int) pos.x,0,(int) pos.z+1),
                     new BlockPos((int) pos.x-1,0,(int) pos.z),
-                    new BlockPos((int) pos.x,0,(int) pos.z-1)
-            );
+                    new BlockPos((int) pos.x,0,(int) pos.z-1));
+            }
             for (BlockPos bp0 : nonReadiedWorkerBps) {
                 Entity entity = workerEntityType != null ? workerEntityType.create(level) : null;
                 if (entity instanceof Unit unit) {
