@@ -235,7 +235,7 @@ public class Factions {
 
 		// Darkners
 		registerStartBuilding(DARKNERS, Buildings.CENTRAL_PORTAL, Keybindings.abilitySlot1);
-		registerBuildings(DARKNERS, Buildings.PORTAL_BASIC, Keybindings.abilitySlot2);
+		registerBuildings(DARKNERS, Buildings.GREAT_BOARD, Keybindings.abilitySlot2);
 		registerBuildings(DARKNERS, Buildings.NETHERWART_FARM, Keybindings.abilitySlot3);
 		registerBuildings(DARKNERS, Buildings.BASTION, Keybindings.abilitySlot4);
 		registerBuildings(DARKNERS, Buildings.HOGLIN_STABLES, Keybindings.abilitySlot5);

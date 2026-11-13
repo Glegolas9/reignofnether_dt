@@ -169,7 +169,8 @@ public abstract class ProductionItem {
                 if (List.of(
                         ProductionItems.VILLAGER,
                         ProductionItems.ZOMBIE_VILLAGER,
-                        ProductionItems.GRUNT
+                        ProductionItems.GRUNT,
+                        ProductionItems.VESSEL
                 ).contains(this))
                     rtsPlayer.scores.addToScore(RTSPlayerScoresEnum.WORKER_UNITS_PRODUCED);
                 else

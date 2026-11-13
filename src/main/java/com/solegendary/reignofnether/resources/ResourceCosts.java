@@ -122,6 +122,9 @@ public class ResourceCosts {
     public static final ResourceCost INFERNAL_PORTAL = new ResourceCost(ID, "INFERNAL_PORTAL");
     public static final ResourceCost PIGLIN_MARKET = new ResourceCost(ID, "PIGLIN_MARKET");
 
+    //Darkners
+    public static final ResourceCost GREAT_BOARD = new ResourceCost(ID, "GREAT_BOARD");
+
     // RESEARCH
 
     public static final ResourceCost RESEARCH_SUPERIOR_BLACKSMITH = new ResourceCost(ID, "RESEARCH_SUPERIOR_BLACKSMITH");
@@ -284,7 +287,6 @@ public class ResourceCosts {
 
         HERO_BASE_REVIVE_COST.bakeValues(ReignOfNetherCommonConfigs.UnitCosts.HERO_BASE_REVIVE_COST);
         HERO_EXTRA_REVIVE_COST_PER_LEVEL.bakeValues(ReignOfNetherCommonConfigs.UnitCosts.HERO_EXTRA_REVIVE_COST_PER_LEVEL);
-
         // DARKNERS
         VESSEL.bakeValues(ReignOfNetherCommonConfigs.UnitCosts.VESSEL);
 
@@ -337,6 +339,9 @@ public class ResourceCosts {
         FORTRESS.bakeValues(ReignOfNetherCommonConfigs.BuildingCosts.FORTRESS);
         INFERNAL_PORTAL.bakeValues(ReignOfNetherCommonConfigs.BuildingCosts.INFERNAL_PORTAL);
         PIGLIN_MARKET.bakeValues(ReignOfNetherCommonConfigs.BuildingCosts.PIGLIN_MARKET);
+        // Darkners
+        GREAT_BOARD.bakeValues(ReignOfNetherCommonConfigs.BuildingCosts.GREAT_BOARD);
+        
         // ******************* RESEARCH ******************* //
         RESEARCH_GOLEM_SMITHING.bakeValues(ReignOfNetherCommonConfigs.ResearchCosts.RESEARCH_GOLEM_SMITHING);
         RESEARCH_SUPERIOR_BLACKSMITH.bakeValues(ReignOfNetherCommonConfigs.ResearchCosts.RESEARCH_SUPERIOR_BLACKSMITH);

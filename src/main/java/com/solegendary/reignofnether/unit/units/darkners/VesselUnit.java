@@ -2,6 +2,9 @@ package com.solegendary.reignofnether.unit.units.darkners;
 import com.solegendary.reignofnether.unit.*;
 import com.solegendary.reignofnether.unit.packets.UnitAnimationClientboundPacket;
 
+import com.solegendary.reignofnether.faction.Factions;
+import com.solegendary.reignofnether.hud.buttons.Button;
+
 import com.solegendary.reignofnether.ability.Abilities;
 import com.solegendary.reignofnether.ability.Ability;
 import com.solegendary.reignofnether.ability.heroAbilities.necromancer.BloodMoon;
@@ -47,6 +50,8 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
@@ -109,6 +114,16 @@ public class VesselUnit extends Mob implements Unit, WorkerUnit, AttackerUnit {
     public boolean canUsePortal() { return getUsePortalGoal() != null; }
 
 	public Abilities getAbilities() {return abilities;}
+
+    @Override
+    public List<Button> getAbilityButtons() {
+        List<Button> abilities = new ArrayList<>(getAbilities().getButtons(this));
+        if (FMLEnvironment.dist == Dist.CLIENT) {
+            abilities.addAll(Factions.getFaction(this).getBuildingButtons());
+        }
+        return abilities;
+    }
+
     public List<ItemStack> getItems() {return items;};
     public MoveToTargetBlockGoal getMoveGoal() {return moveGoal;}
     public SelectedTargetGoal<? extends LivingEntity> getTargetGoal() {return targetGoal;}
@@ -206,8 +221,7 @@ public class VesselUnit extends Mob implements Unit, WorkerUnit, AttackerUnit {
 
     public VesselUnit(EntityType<? extends Mob> entityType, Level level) {
         super(entityType, level);
-
-        // updateAbilityButtons();
+        updateAbilityButtons();
     }
 
     @Override

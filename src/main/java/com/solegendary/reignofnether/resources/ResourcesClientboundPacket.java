@@ -102,6 +102,17 @@ public class ResourcesClientboundPacket {
         }
     }
 
+    public static void warnDuplicateBuilding(String ownerName) {
+        PacketHandler.INSTANCE.send(PacketDistributor.ALL.noArg(),
+                new ResourcesClientboundPacket(ResourcesAction.SHOW_WARNING,
+                    ownerName,
+                    0,0,0,0,
+                    new BlockPos(0, 0, 0),
+                    "server.resources.reignofnether.duplicate_building"
+                )
+        );
+    }
+
     public static void warnInsufficientPopulation(String ownerName) {
         PacketHandler.INSTANCE.send(PacketDistributor.ALL.noArg(),
                 new ResourcesClientboundPacket(ResourcesAction.SHOW_WARNING,

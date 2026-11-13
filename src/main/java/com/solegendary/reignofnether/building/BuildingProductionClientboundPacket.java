@@ -170,7 +170,9 @@ public class BuildingProductionClientboundPacket {
                         if (building instanceof ProductionPlacement pBuilding) {
                             if (!pBuilding.productionQueue.isEmpty()) {
                                 for (ActiveProduction pItem : pBuilding.productionQueue) {
+                                    System.out.println("startProduction Thread: COMPLETION -> (offical item name): " + pItem.item.getItemName() + " (unofficial): " + this.itemName + " [already completed?]: " + !pItem.completed);
                                     if (pItem.item.getItemName().equals(this.itemName) && !pItem.completed) {
+                                        System.out.println("startProduction Thread: EXECUTING COMPLETION! ");
                                         pItem.complete(pBuilding);
                                         break;
                                     }

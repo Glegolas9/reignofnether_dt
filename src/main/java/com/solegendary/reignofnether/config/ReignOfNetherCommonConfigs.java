@@ -134,6 +134,9 @@ public class ReignOfNetherCommonConfigs {
         BuildingCosts.FORTRESS.define(BUILDER);
         BuildingCosts.INFERNAL_PORTAL.define(BUILDER);
         BuildingCosts.PIGLIN_MARKET.define(BUILDER);
+        // Darkners
+        BUILDER.comment("Darkners");
+        BuildingCosts.GREAT_BOARD.define(BUILDER);
 
         //*Research*
         BUILDER.comment("Research Cost Configurations");
@@ -324,7 +327,7 @@ public class ReignOfNetherCommonConfigs {
         public static final ResourceCostConfigEntry PIGLIN_MARKET = ResourceCostConfigEntry.Building(0,75,75, 0, ResourceCosts.PIGLIN_MARKET, "Piglin Market Config");
 
         // Darkners
-        // public static final ResourceCostConfigEntry GRAND_FOUNTAIN = ResourceCostConfigEntry.Building();
+        public static final ResourceCostConfigEntry GREAT_BOARD = ResourceCostConfigEntry.Building(0, 50, 50, 0, ResourceCosts.GREAT_BOARD, "Great Board Config");
     }
     public static class ResearchCosts implements Costs {
         public static final ResourceCostConfigEntry RESEARCH_GOLEM_SMITHING = ResourceCostConfigEntry.Research(0, 150,200, 90, ResourceCosts.RESEARCH_GOLEM_SMITHING, "Golem Smithing Research Config");

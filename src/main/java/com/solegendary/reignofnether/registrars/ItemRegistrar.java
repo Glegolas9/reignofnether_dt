@@ -212,6 +212,10 @@ public class ItemRegistrar {
             ITEMS.register("bee_unit_spawn_egg", () -> new ForgeSpawnEggItem(EntityRegistrar.BEE_UNIT,
                     0xdbb544, 0x2a1711, new Item.Properties()));
 
+    public static final RegistryObject<ForgeSpawnEggItem> VESSEL_UNIT_SPAWN_EGG =
+            ITEMS.register("vessel_unit_spawn_egg", () -> new ForgeSpawnEggItem(EntityRegistrar.VESSEL_UNIT,
+                    0xdbb544, 0x2a1711, new Item.Properties()));
+
     public static final RegistryObject<Item> THROWABLE_TNT =
             ITEMS.register("throwable_tnt", () -> new ThrowableTnt(new Item.Properties()));
 

@@ -307,6 +307,12 @@ public class BlockRegistrar {
                     .sound(SoundType.GLASS)
             ), CreativeModeTabs.BUILDING_BLOCKS);
 
+    public static final RegistryObject<Block> PURPLE_FIELD_GRASS_BLOCK = registerBlock("purple_field_grass_block", 
+            () -> new PurpleFieldGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK)), CreativeModeTabs.BUILDING_BLOCKS);
+
+    public static final RegistryObject<Block> DARK_CANDY_TREE_LOG = registerBlock("dark_candy_tree_log", 
+            () -> new DarkCandyTreeLog(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK)), CreativeModeTabs.BUILDING_BLOCKS); // Blocks.OAK_LOG crashes the game? Probably because logs have more implementations that need to be addressed.
+
     private static boolean always(BlockState p_50775_, BlockGetter p_50776_, BlockPos p_50777_) {
         return true;
     }

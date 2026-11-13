@@ -243,7 +243,12 @@ public class ProductionPlacement extends BuildingPlacement {
             return false;
         }
 
+        System.out.println("startProductionItem Thread: PASSED 1 CHECK!");
+
         if (prodItem != null) {
+
+            System.out.println("startProductionItem Thread: PASSED 2 CHECK!");
+
             // only worry about checking affordability on serverside
             if (getLevel().isClientSide()) {
                 ActiveProduction activeProduction = new ActiveProduction(prodItem, true, ownerName);
@@ -253,19 +258,28 @@ public class ProductionPlacement extends BuildingPlacement {
                 success = true;
             }
             else {
+
+                System.out.println("startProductionItem Thread: IS ON SERVER!");
+
                 boolean allow = switch (prodItem.dupeRule) {
                     case DISALLOW -> !prodItem.itemIsBeingProduced(false, ownerName);
                     case DISALLOW_FOR_BUILDING -> !prodItem.itemIsBeingProducedAt(false, this);
                     case ALLOW -> true;
                 };
 
+                System.out.println("startProductionItem Thread: ALLOW STATE: " + allow);
+
                 if (!prodItem.canProduce(this)) {
+                    System.out.println("startProductionItem Thread: CANNOT PRODUCE!");
+
                     String errorMsg = prodItem.getProduceErrorMsg(this);
                     if (errorMsg != null) {
                         HudClientboundPacket.showTempMessageI18n(ownerName, errorMsg);
                     }
                 }
                 else if (allow && prodItem.canAfford(this)) {
+                    System.out.println("startProductionItem Thread: IN ACTIVE PRODUCTION!");
+
                     ActiveProduction activeProduction = new ActiveProduction(prodItem, false, ownerName);
                     productionQueue.add(activeProduction);
                     ResourcesServerEvents.addSubtractResources(new Resources(
@@ -278,6 +292,9 @@ public class ProductionPlacement extends BuildingPlacement {
                     success = true;
                 }
                 else {
+
+                    System.out.println("startProductionItem Thread: WEIRD ROUTE!");
+
                     if (!prodItem.isBelowMaxPopulation(this))
                         ResourcesClientboundPacket.warnMaxPopulation(ownerName);
                     else if (!prodItem.canAffordPopulation(this)) {

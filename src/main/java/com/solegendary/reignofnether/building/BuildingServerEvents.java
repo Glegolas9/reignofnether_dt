@@ -18,6 +18,7 @@ import com.solegendary.reignofnether.building.buildings.shared.AbstractBridge;
 import com.solegendary.reignofnether.building.buildings.villagers.Blacksmith;
 import com.solegendary.reignofnether.building.buildings.villagers.IronGolemBuilding;
 import com.solegendary.reignofnether.building.buildings.villagers.Library;
+import com.solegendary.reignofnether.building.buildings.darkners.GreatBoard;
 import com.solegendary.reignofnether.building.custombuilding.CustomBuildingServerEvents;
 import com.solegendary.reignofnether.building.data.DataType;
 import com.solegendary.reignofnether.building.production.ActiveProduction;
@@ -390,9 +391,26 @@ public class BuildingServerEvents {
             }
         }
         if (newBuilding != null && !buildingExists && serverLevel != null) {
+            Building currentBuilding = newBuilding.getBuilding();
+
+            // Handle special building (Savepoint)
+            if (currentBuilding instanceof GreatBoard) {
+
+                // Assuming that commands hold higher-power over the balancing check.
+                if (!fromCommand) {
+                    for (BuildingPlacement b : buildings) {
+                        if (b.getBuilding() instanceof GreatBoard) {
+                            // TODO: MAKE SAVEPOINT
+                            ResourcesClientboundPacket.warnDuplicateBuilding(ownerName);
+                            FogBuildingClientboundPacket.removeFogQueuedBuilding(originPos);
+                            return null;
+                        }
+                    }
+                }
+            }
 
             // Handle special building (Iron Golem)
-            if (newBuilding.getBuilding() instanceof IronGolemBuilding) {
+            if (currentBuilding instanceof IronGolemBuilding) {
                 int currentPop = UnitServerEvents.getCurrentPopulation(ownerName);
                 int popSupply = BuildingServerEvents.getTotalPopulationSupply(ownerName);
 

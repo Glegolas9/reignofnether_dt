@@ -1,4 +1,5 @@
 {
+    "item.reignofnether.vessel_unit_spawn_egg": "Spawn Vessel Unit",
     "item.reignofnether.zombie_unit_spawn_egg": "Spawn Zombie Unit",
     "item.reignofnether.husk_unit_spawn_egg": "Spawn Husk Unit",
     "item.reignofnether.drowned_unit_spawn_egg": "Spawn Drowned Unit",
@@ -701,6 +702,8 @@
     "building.reignofnether.unexplored": "Area is unexplored",
     "building.reignofnether.build_centre_here": "Build your town centre over here!",
 
+    "buildings.reignofnether.great_board": "Great Board",
+    "buildings.reignofnether.great_board.tooltip1": "A giant chess board that can recruit K. Rounds and Ponmans.",
     "buildings.reignofnether.dark_watchtower": "Dark Watchtower",
     "buildings.reignofnether.dark_watchtower.tooltip1": "An ominous tower that can garrison units.",
     "buildings.reignofnether.dark_watchtower.tooltip2": "Garrisoned ranged units have increased range.",
@@ -1082,6 +1085,8 @@
     "fogofwar.reignofnether.cpu_usage": "- Ups CPU usage (lower chunk render distance to help)",
     "fogofwar.reignofnether.to_confirm": "Use /rts-fog enable again to confirm.",
 
+    "hud.uniterrors.reignofnether.vessel.duplicate": "You cannot make anymore Vessels.",
+
     "hud.buttons.reignofnether.on_cooldown": "Ability is on cooldown (%ds)",
     "hud.buttons.reignofnether.not_enough_mana": "Not enough mana",
 
@@ -1307,6 +1312,7 @@
     "server.resources.reignofnether.not_enough_pop": "You don't have enough population supply",
     "server.resources.reignofnether.max_pop": "You have reached the maximum population",
     "server.resources.reignofnether.full_graveyard": "This graveyard is too full",
+    "server.resources.reignofnether.duplicate_building": "You cannot place another one of this building",
 
     "server.resources.reignofnether.sent_food": "You gave %d food to %s!",
     "server.resources.reignofnether.received_food": "You received %d food from %s!",
@@ -1918,6 +1924,8 @@
 
     "survival.reignofnether.next_wave": "Next Wave: %d (Tier %d %s)",
 
+    "block.reignofnether.purple_field_grass_block": "Purple Field Grass Block",
+    "block.reignofnether.dark_candy_tree_log": "Dark Candy Tree Log",
     "block.reignofnether.decayable_nether_wart_block": "Decayable Nether Wart Block",
     "block.reignofnether.decayable_warped_wart_block": "Decayable Warped Wart Block",
     "block.reignofnether.falling_oak_log": "Falling Oak Log",
